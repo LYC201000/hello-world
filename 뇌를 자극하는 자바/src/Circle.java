@@ -11,8 +11,8 @@
 public class Circle {
 	public int radius;
 	public String name;
-	
-	public Circle() { // 매개변수가 없는 생성자
+	// 매개변수가 없는 생성자
+	public Circle() { 
 		radius=1;
 		name= "";
 	}
@@ -21,14 +21,28 @@ public class Circle {
 		radius=r;
 		name= n;
 	}
-	public double getarea() { //메소드
+	//메소드
+	public double getarea() {
 		return 3.14*radius*radius;
 	}
+	//메인메소드
 	public static void main(String[] args) {
-		Circle pizza=new Circle(10,"w자바피자");//Circle 객체 생성, 반지름 10
-		double area=pizza.getarea();
-		System.out.println(pizza.name+"의먼적은"+area);
+		Circle pizza=new Circle(10,"자바피자");//Circle 객체 생성, 반지름 10
+		double pizza_area=pizza.getarea();
+		System.out.println(pizza.name+"의먼적은"+pizza_area);	
+		
+		   
+/*		Circle donut=new Circle();
+		donut.radius =2;
+		donut.name ="자바도넛";
+		
+		area=donut.getarea();
+		System.out.println(donut.name + "의 면적은 " + area);
+		System.out.println(pizza.name+"의먼적은"+area);*/
 		
 	}
+	
+	
 
+	
 }
