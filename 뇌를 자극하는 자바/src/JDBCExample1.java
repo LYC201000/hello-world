@@ -1,5 +1,6 @@
 
-import java.sql.*;// 패키지
+import java.sql.*;// 패키지   
+//db접속 
 
 class JDBCExample1 {
     public static void main(String args[]) {
