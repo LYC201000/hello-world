@@ -1,0 +1,8 @@
+
+// 0값이라 안돼
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 0
+	at Test_args.main(Test_args.java:5)
+	
+	
+	//기본클래스 찾을수 없을시 로드할수없을시
+	   프로잭트명 오른쪽클릭 propertise 런 디버그 셋팅에서  delete

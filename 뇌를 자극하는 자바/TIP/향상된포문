@@ -1,0 +1,17 @@
+String[] Cities={"seoul","dejen","busan","jeju"};        시작
+
+		1
+System.out.println(args[0]);
+System.out.println(args[1]);
+System.out.println(args[2]);                              
+
+		2
+for(String xx:args)
+			System.out.println(xx);                         
+			
+		3			
+for(int i=0;i<args.length;i++)                            
+System.out.println(args[i]);
+
+	
+		
