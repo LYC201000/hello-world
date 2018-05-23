@@ -8,7 +8,7 @@
  * @author Administrator
  *
  */
-public class Circle {
+public class Circle { 
 	public int radius;
 	public String name;
 	// 매개변수가 없는 생성자

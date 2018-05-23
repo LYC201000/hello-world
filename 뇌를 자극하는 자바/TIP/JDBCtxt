@@ -19,3 +19,8 @@
             
 //4단계: DB연결을 종료한다
             conn.close();
+            
+            
+  -------------------------------향상자 포
+  for(String xx:args)
+			System.out.println(xx);
