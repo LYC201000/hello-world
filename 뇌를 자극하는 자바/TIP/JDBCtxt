@@ -21,6 +21,9 @@
             conn.close();
             
             
+            select 문-> executeQuery();
+            
+            
   -------------------------------향상자 포
   for(String xx:args)
 			System.out.println(xx);
