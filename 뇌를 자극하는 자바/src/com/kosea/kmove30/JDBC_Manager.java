@@ -3,6 +3,7 @@ package com.kosea.kmove30;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBC_Manager {
@@ -43,10 +44,44 @@ public class JDBC_Manager {
 		return rs;
 	}
 
+	// query INSERT INTO Person(pname,age,gender)VALUES('홍길동',13,'m');
+
+	public void insertTable(String[] arr) throws Exception {
+
+		String name = arr[0];
+		String age = arr[1];
+		String gender = arr[2];
+
+		String query = "INSERT INTO Person(pname,age,gender)VALUES"
+				+ "('" + name + "'," + age + ",'" + gender + "'"+");";
+		stmt = conn.createStatement();
+		System.out.println("query-"+query);
+		int insertCount = stmt.executeUpdate(query);
+
+		if (insertCount > 0)
+			System.out.println(insertCount + "건이추가되었습니다");
+
+	}
+	
+	// query - "delete from person where pname='홍길동'
+	public void updateTable(String name, String age) throws Exception {
+		String query = "update person set age=" + age + " where pname = '" + name + "'";
+		stmt = conn.createStatement();
+		System.out.println("query" +query);
+		int updateCount = stmt.executeUpdate(query);
+		
+		if (updateCount > 0)
+			System.out.println(updateCount + "건이수정되었습니다");
+	}
+	
+
+	
+	
 	// query - "delete from person where pname='홍길동'
 	public void deleteTable(String deleteName) throws Exception {
 		String query = "delete from person where pname='" + deleteName + "'";
 		stmt = conn.createStatement();
+		System.out.println("query-"+query);
 		int deleteCount = stmt.executeUpdate(query);
 
 		System.out.println(deleteCount + "건이삭제되었습니다");

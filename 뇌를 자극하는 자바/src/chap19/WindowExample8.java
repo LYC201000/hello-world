@@ -22,24 +22,28 @@ class WindowExample8 {
 		JDBC_Manager jdbcManager = new JDBC_Manager();
 
 		JFrame frame = new JFrame("참가자 명단 프로그램");
-		frame.setPreferredSize(new Dimension(430, 200));
+		frame.setPreferredSize(new Dimension(500, 200));
 		frame.setLocation(500, 400);
-
 		Container contentPane = frame.getContentPane();
+		 
+		//테이블생성해서 content pane에 추가
 		String colNames[] = { "이름", "나이", "성별" };
 		DefaultTableModel model = new DefaultTableModel(colNames, 0);
 		JTable table = new JTable(model);
 		contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
+		
+		//라벨,텍스트상자, 버튼을 생성해서 테이블아래에 추가
 		JPanel panel = new JPanel();
 
 		JTextField text1 = new JTextField(3);
 		JTextField text2 = new JTextField(3);
 		JTextField text3 = new JTextField(2);
-
 		JButton selectBtn = new JButton("조회");
 		JButton button1 = new JButton("추가");
+		JButton updatebtn  =new JButton("수정");
 		JButton button2 = new JButton("삭제");
-
+		 
+		
 		panel.add(new JLabel("이름"));
 		panel.add(text1);
 		panel.add(new JLabel("나이"));
@@ -49,13 +53,15 @@ class WindowExample8 {
 
 		panel.add(selectBtn);
 		panel.add(button1);
+		panel.add(updatebtn);
 		panel.add(button2);
 		contentPane.add(panel, BorderLayout.SOUTH);
 
 		// 조회버튼 이벤트리스너 등록
-		// selectBtn.addActionListener(null);
+		table.addMouseListener(new MyMouseListener(text1, text2, text3));
 		selectBtn.addActionListener(new SelectActionListener(jdbcManager, table));
-		button1.addActionListener(new AddActionListener(table, text1, text2, text3));
+		button1.addActionListener(new AddActionListener(jdbcManager,table, text1, text2, text3));
+		updatebtn.addActionListener(new UpdateActionListener(jdbcManager, text1, text2));
 		button2.addActionListener(new RemoveActionListener(jdbcManager,table));
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,6 +82,7 @@ class WindowExample8 {
 
 		} catch (Exception e) {
 			e.getMessage();
+			
 			frame.setTitle("참가자 명단 프로그램 - DB접속 실패");
 		}
 	}

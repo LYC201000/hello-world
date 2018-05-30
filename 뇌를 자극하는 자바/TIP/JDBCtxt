@@ -27,3 +27,11 @@
   -------------------------------향상자 포
   for(String xx:args)
 			System.out.println(xx);
+			
+			
+			
+			
+			숫자를 문자열로 변환
+			String strNum = vaiueOf();			
+			문자열을 숫자로 변환
+			int Num = integer.parIn("123");	
