@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class WindowExample6 {
+public class aaaaaaaaaaaa {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -32,17 +32,17 @@ public class WindowExample6 {
 		JTextField Text2 = new JTextField();	//
 		JTextField Text3 = new JTextField();	//
 												//
-		panel.add(new JLabel("ID"));			//
+		panel.add(new JLabel("아이디"));			//
 		panel.add(Text1);						//
 												// 컴포넌트를 생성해서 패널에 추가
-		panel.add(new JLabel("PW"));			//
+		panel.add(new JLabel("+"));			//
 		panel.add(Text2);						//
 												//
-//		panel.add(new JLabel("전화번호"));		//
-//		panel.add(Text3);                   	//
+		panel.add(new JLabel("전화번호"));		//
+		panel.add(Text3);                   	//
 
 		contentPane.add(panel, BorderLayout.CENTER); //패널을 content pane에 추가
-		contentPane.add(new JButton("로그인!"), BorderLayout.SOUTH);
+		contentPane.add(new JButton("입력"), BorderLayout.SOUTH);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

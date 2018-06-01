@@ -2,6 +2,7 @@ package com.kosea.kmove30;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,11 +38,13 @@ public class JDBC_Manager {
 	}
 
 	// query-
-	public ResultSet selectTable(String query) throws Exception {
+	public ResultSet SelectTable(String query) throws Exception {
 		stmt = conn.createStatement();// malldb 접속정보->show processlist;
 		rs = stmt.executeQuery(query);// DML sql쿼리 실행후 결과를 저장
+		
 		// DB연결해제
 		return rs;
+		
 	}
 
 	// query INSERT INTO Person(pname,age,gender)VALUES('홍길동',13,'m');
@@ -51,6 +54,12 @@ public class JDBC_Manager {
 		String name = arr[0];
 		String age = arr[1];
 		String gender = arr[2];
+		
+		//콤보박스에 '남' 을 선태하면 ->"m"
+		//			'여'을 선택하면 ->"f"
+		gender = gender.equals("남")? "m":"f";
+		
+		
 
 		String query = "INSERT INTO Person(pname,age,gender)VALUES"
 				+ "('" + name + "'," + age + ",'" + gender + "'"+");";
@@ -91,6 +100,13 @@ public class JDBC_Manager {
 		conn.close(); // try문 마지막에
 
 	}
+
+	public com.mysql.jdbc.Connection getconnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 	// DB종료
 

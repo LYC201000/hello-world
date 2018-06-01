@@ -24,6 +24,7 @@ class WindowExample8 {
 		JFrame frame = new JFrame("참가자 명단 프로그램");
 		frame.setPreferredSize(new Dimension(500, 200));
 		frame.setLocation(500, 400);
+		
 		Container contentPane = frame.getContentPane();
 		 
 		//테이블생성해서 content pane에 추가
@@ -61,7 +62,7 @@ class WindowExample8 {
 		table.addMouseListener(new MyMouseListener(text1, text2, text3));
 		selectBtn.addActionListener(new SelectActionListener(jdbcManager, table));
 		button1.addActionListener(new AddActionListener(jdbcManager,table, text1, text2, text3));
-		updatebtn.addActionListener(new UpdateActionListener(jdbcManager, text1, text2));
+		updatebtn.addActionListener(new UpdateActionListener(jdbcManager, text1, text2, table));
 		button2.addActionListener(new RemoveActionListener(jdbcManager,table));
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

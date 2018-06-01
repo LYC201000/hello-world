@@ -41,7 +41,7 @@ public class SelectActionListener implements ActionListener {
 		
 
 		try {
-			rs = jdbcManager.selectTable(query);
+			rs = jdbcManager.SelectTable(query);
 			model.setNumRows(0);
 			
 			ResultSetMetaData md = rs.getMetaData();
