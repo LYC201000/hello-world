@@ -23,7 +23,7 @@ class WindowExample8_2 {
 		// DB관리 클래스! (연결,조회,삭제,추가 클래스)
 		JDBC_Manager jdbcManager = new JDBC_Manager();
 
-		JFrame frame = new JFrame("참가자 명단 프로그램");
+		JFrame frame = new JFrame("참가자 f명단 프로그램");
 		frame.setPreferredSize(new Dimension(550, 200));
 		frame.setLocation(500, 400);
 
@@ -81,7 +81,7 @@ class WindowExample8_2 {
 		
 			jdbcManager.DBConnection("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/mysql", "root", "12345");
 			System.out.println("데이터베이스에 접속했습니다.");
-			frame.setTitle("참가자 명단 프로그램 - DB접속 성공");
+			frame.setTitle("참가자 명단 프로그램xx - DB접속 성공");
 
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println("해당 클래스를 찾을 수 없습니다." + cnfe.getMessage());

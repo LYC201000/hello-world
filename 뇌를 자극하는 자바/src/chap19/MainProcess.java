@@ -6,7 +6,7 @@ public class MainProcess {
 	public MainProcess() {
 		System.out.println("MainProcess()");
 		
-		
+	//로그인	
 	}
 
 	// 테스트프레임창

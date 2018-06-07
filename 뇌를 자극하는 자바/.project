@@ -20,5 +20,20 @@
 			<type>2</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Desktop/image</locationURI>
 		</link>
+		<link>
+			<name>image/qqq.PNG</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/qqq.PNG</locationURI>
+		</link>
+		<link>
+			<name>image/qqq1.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/qqq1.png</locationURI>
+		</link>
+		<link>
+			<name>image/qqq3.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/qqq3.png</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>

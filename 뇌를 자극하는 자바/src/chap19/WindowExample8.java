@@ -20,8 +20,9 @@ class WindowExample8 {
 		
 		// DB관리 클래스! (연결,조회,삭제,추가 클래스)
 		JDBC_Manager jdbcManager = new JDBC_Manager();
+		System.out.println("aaaa");
 
-		JFrame frame = new JFrame("참가자 명단 프로그램");
+		JFrame frame = new JFrame("참가자 sssss명단 프로그램");
 		frame.setPreferredSize(new Dimension(500, 200));
 		frame.setLocation(500, 400);
 		
@@ -69,7 +70,7 @@ class WindowExample8 {
 		frame.pack();
 		frame.setVisible(true);
 
-		System.out.println("프로그램 시작");
+		System.out.println("프로그램 ss시작");
 
 		try {
 
