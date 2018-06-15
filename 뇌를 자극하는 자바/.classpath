@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="PersonInfo.java|JDBC_Person.java|Person.java" kind="src" path="src"/>
+	<classpathentry kind="src" path="properties"/>
 	<classpathentry kind="lib" path="C:/k-move/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/gmailAPI/mail.jar"/>
 	<classpathentry kind="lib" path="D:/mybatis-3.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/0_로그 설정 파일_180608/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

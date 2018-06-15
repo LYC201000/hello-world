@@ -3,9 +3,8 @@ package PR;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.util.Vector;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -18,10 +17,8 @@ import javax.swing.table.DefaultTableModel;
 
 import com.kosea.kmove30.JDBC_Manager2;
 
-
 class WindowExample8_4 {
-	
-	
+
 	public WindowExample8_4() {
 		// DB관리 클래스! (연결,조회,삭제,추가 클래스)
 		JDBC_Manager2 jdbcManager2 = new JDBC_Manager2();
@@ -50,7 +47,8 @@ class WindowExample8_4 {
 		// JTextField text3 = new JTextField(2);
 
 		JButton selectBtn = new JButton("조회");
-		JButton imBtn = new JButton("통화");
+		//JButton imBtn = new JButton("통화");
+		JButton reBtn = new JButton("등록및보기");
 		JButton button1 = new JButton("추가");
 		JButton updatebtn = new JButton("수정");
 		JButton button2 = new JButton("삭제");
@@ -64,7 +62,7 @@ class WindowExample8_4 {
 		//panel.add(text3); aaaa
 
 		panel.add(selectBtn);
-		panel.add(imBtn);
+		panel.add(reBtn);
 		panel.add(button1);
 		panel.add(updatebtn);
 		panel.add(button2);
@@ -77,7 +75,8 @@ class WindowExample8_4 {
 		button1.addActionListener(new AddActionListener2(jdbcManager2, table, text1, text2,genderComboBox));
 		updatebtn.addActionListener(new UpdateActionListener2(jdbcManager2, text1, text2, table));
 		button2.addActionListener(new RemoveActionListener2(jdbcManager2, table));
-		imBtn.addActionListener(new ButtonImageEx(table, jdbcManager2, imBtn));
+		//imBtn.addActionListener(new ButtonImageEx(table, jdbcManager2, imBtn));
+		reBtn.addActionListener(new CreateMember());
 		
 		
 
@@ -102,20 +101,20 @@ class WindowExample8_4 {
 			frame.setTitle("연락처 - DB접속 실패");
 		}
 	}
-	
+
 	private void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void setSize(int i, int j) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public static void main(String[] args) {
-		 new WindowExample8_4();
-		 
+		new WindowExample8_4();
+
 	}
-	
+
 }
