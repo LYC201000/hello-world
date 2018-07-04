@@ -1,6 +1,7 @@
 package PR;
-
+ 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.util.Vector;
@@ -24,23 +25,23 @@ class WindowExample8_4 {
 		JDBC_Manager2 jdbcManager2 = new JDBC_Manager2();
 
 		JFrame frame = new JFrame("대출TM DB");
+		
 		frame.setPreferredSize(new Dimension(800,500));
 		frame.setLocation(500, 400);
 
 		Container contentPane = frame.getContentPane();
-
 				
 		
 		// 테이블생성해서 content pane에 추가
 		String colNames[] = { "이름", "전화번호", "성별" };
 		String genders[] = { "골라","남", "여" };
 		DefaultTableModel model = new DefaultTableModel(colNames, 0);
+		
 		JTable table = new JTable(model);
 		contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
 
 		// 라벨,텍스트상자, 버튼을 생성해서 테이블아래에 추가
 		JPanel panel = new JPanel();
-
 		JTextField text1 = new JTextField(4);
 		JTextField text2 = new JTextField(13);
 		JComboBox<String> genderComboBox = new JComboBox<String>(genders);

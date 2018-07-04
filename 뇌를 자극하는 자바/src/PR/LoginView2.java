@@ -1,5 +1,6 @@
 package PR;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -37,11 +38,17 @@ public class LoginView2 extends JFrame {
 		setSize(280, 150);
 		setResizable(false);
 		setLocation(800, 450);
+
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// panel
+
 		JPanel panel = new JPanel();
 		placeLoginPanel(panel);
+		Color b = new Color(0, 0, 0);
+
+		
+		panel.setBackground(b);
 
 		// add
 		add(panel);
@@ -54,24 +61,29 @@ public class LoginView2 extends JFrame {
 	public void placeLoginPanel(JPanel panel) {
 		panel.setLayout(null);
 		JLabel userLabel = new JLabel("직원이름");
+		userLabel.setForeground(Color.GREEN);
 		userLabel.setBounds(10, 10, 80, 25);
 		panel.add(userLabel);
+		
 
 		JLabel passLabel = new JLabel("비밀번호");
+		passLabel.setForeground(Color.GREEN);
 		passLabel.setBounds(10, 40, 80, 25);
 		panel.add(passLabel);
 
-		userText = new JTextField( 20);
+		userText = new JTextField(20);
+		userText.setForeground(Color.GREEN);
 		userText.setBounds(100, 10, 160, 25);
 		panel.add(userText);
 
-		passText = new JPasswordField( 20);
+		passText = new JPasswordField(20);
+		
 		passText.setBounds(100, 40, 160, 25);
 		panel.add(passText);
 		passText.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//isLoginCheck(userText.getText(), passText.getPassword().toString());
+				// isLoginCheck(userText.getText(), passText.getPassword().toString());
 			}
 		});
 
@@ -92,7 +104,7 @@ public class LoginView2 extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isLoginCheck(userText.getText(),new String(passText.getPassword()));
+				isLoginCheck(userText.getText(), new String(passText.getPassword()));
 			}
 		});
 	}
@@ -100,7 +112,7 @@ public class LoginView2 extends JFrame {
 	public void isLoginCheck(String id, String pass) {
 
 		String idCheckQuery = "SELECT id, pass FROM MEMBER where id ='" + id + "'";
-		
+
 		System.out.println("idCheckQuery: " + idCheckQuery);
 		JDBC_Manager jdbcManager = new JDBC_Manager();
 
@@ -109,7 +121,7 @@ public class LoginView2 extends JFrame {
 			rs = jdbcManager.SelectTable(idCheckQuery);
 
 			if (rs.next()) {
-				
+
 				System.out.println(rs.getString("id") + "  " + rs.getString("pass"));
 				// 아이디가 존재하면 패스워드 비교
 				System.out.println("아이디좀ㅈ존");
@@ -118,7 +130,7 @@ public class LoginView2 extends JFrame {
 					JOptionPane.showMessageDialog(null, "성공!!");
 					bLoginCheck = true;
 					// 로그인 성공이라면 매니져창 뛰우기
-					
+
 					if (isLogin()) {
 						main.showFrameTest(); // 메인창 메소드를 이용해 창뛰우기
 					}
