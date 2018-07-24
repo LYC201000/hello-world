@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import com.kosea.kmove30.JDBC_Manager;
 
@@ -46,8 +47,6 @@ public class LoginView2 extends JFrame {
 		JPanel panel = new JPanel();
 		placeLoginPanel(panel);
 		Color b = new Color(0, 0, 0);
-
-		
 		panel.setBackground(b);
 
 		// add
@@ -64,7 +63,6 @@ public class LoginView2 extends JFrame {
 		userLabel.setForeground(Color.GREEN);
 		userLabel.setBounds(10, 10, 80, 25);
 		panel.add(userLabel);
-		
 
 		JLabel passLabel = new JLabel("비밀번호");
 		passLabel.setForeground(Color.GREEN);
@@ -72,12 +70,15 @@ public class LoginView2 extends JFrame {
 		panel.add(passLabel);
 
 		userText = new JTextField(20);
+		userText.setBackground(Color.BLACK);
 		userText.setForeground(Color.GREEN);
 		userText.setBounds(100, 10, 160, 25);
 		panel.add(userText);
 
 		passText = new JPasswordField(20);
-		
+		passText.setBackground(Color.BLACK);
+		passText.setForeground(Color.green);
+
 		passText.setBounds(100, 40, 160, 25);
 		panel.add(passText);
 		passText.addActionListener(new ActionListener() {
@@ -88,6 +89,8 @@ public class LoginView2 extends JFrame {
 		});
 
 		btnInit = new JButton("Reset");
+		btnInit.setForeground(Color.GREEN);
+		btnInit.setBackground(Color.BLACK);
 		btnInit.setBounds(10, 80, 100, 25);
 		panel.add(btnInit);
 		btnInit.addActionListener(new ActionListener() {
@@ -99,6 +102,8 @@ public class LoginView2 extends JFrame {
 		});
 
 		btnLogin = new JButton("Login");
+		btnLogin.setBackground(Color.BLACK);
+		btnLogin.setForeground(Color.GREEN);
 		btnLogin.setBounds(160, 80, 100, 25);
 		panel.add(btnLogin);
 		btnLogin.addActionListener(new ActionListener() {
@@ -124,23 +129,49 @@ public class LoginView2 extends JFrame {
 
 				System.out.println(rs.getString("id") + "  " + rs.getString("pass"));
 				// 아이디가 존재하면 패스워드 비교
-				System.out.println("아이디좀ㅈ존");
+				System.out.println("  ");
 				if (pass.equals(rs.getString("pass"))) {
 					// 로그인 성공
-					JOptionPane.showMessageDialog(null, "성공!!");
+					// JOptionPane.showMessageDialog(null, "성공!!");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.black);
+					UI.put("Panel.background", Color.black);
+					UI.put("Button.background", Color.black);
+					javax.swing.JOptionPane j = new javax.swing.JOptionPane();
+					UI.put("OptionPane.messageForeground", Color.green);
+
+					JOptionPane.showMessageDialog(null, "성공!", "로그인!!", JOptionPane.INFORMATION_MESSAGE);
+
 					bLoginCheck = true;
 					// 로그인 성공이라면 매니져창 뛰우기
 
 					if (isLogin()) {
 						main.showFrameTest(); // 메인창 메소드를 이용해 창뛰우기
+
 					}
 				} else {
 					// 패스워드가 틀림
+
+					UIManager UI1 = new UIManager();
+					UI1.put("OptionPane.background", Color.black);
+					UI1.put("Panel.background", Color.black);
+					UI1.put("Button.background", Color.black);
+					UI1.put("OptionPane.messageForeground", Color.green);
+					UI1.put("Button.messageForeground", Color.green);
 					JOptionPane.showMessageDialog(null, "패스워드 틀렷다");
+
 				}
 			} else {
 				// 아이디가 없음
+
+				UIManager UI2 = new UIManager();
+				UI2.put("OptionPane.background", Color.black);
+				UI2.put("Panel.background", Color.black);
+				UI2.put("Button.background", Color.black);
+				UI2.put("OptionPane.messageForeground", Color.green);
+				UI2.put("Button.messageForeground", Color.green);
 				JOptionPane.showMessageDialog(null, "아이디가없다");
+
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

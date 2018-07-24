@@ -1,5 +1,6 @@
 package PR;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -7,6 +8,7 @@ import java.sql.ResultSetMetaData;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.kosea.kmove30.JDBC_Manager;
@@ -61,21 +63,29 @@ public class SelectActionListener2 implements ActionListener {
 			if(rowCount>=1) {
 			while (rs.next()) {
 			
-				System.out.println("뷁뷁뷁1");
+				System.out.println(" 1");
 				arr[0] = rs.getString("cname");
 				arr[1] = rs.getString("phoneNum");
 				// 성별을 남/여 구분값으로 변경
 				arr[2] = rs.getString("gender").equals("m") ? "남" : "여";
 				System.out.println(arr[0] + " " + arr[1] + " " + arr[2]);
-				System.out.println("뷁뷁뷁2");
+				System.out.println(" 2");
 				model.addRow(arr); // 데이터를 테이블에 추가
+				
+				
 			}
 			}else {
 				//조회된 결과가 없을때
 				
 				// 스윙 확인창띄우기
-				JOptionPane.showConfirmDialog(null, "없다고", "조회된 결과가 없습니다.", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
+				UIManager UI1 = new UIManager();
+				UI1.put("OptionPane.background", Color.black);
+				UI1.put("Panel.background", Color.black);
+				UI1.put("Button.background", Color.black);
+				UI1.put("OptionPane.messageForeground", Color.green);
+				UI1.put("Button.messageForeground", Color.green);
+				JOptionPane.showConfirmDialog(null, "없습니다", "조회된 결과가 없습니다.", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				System.out.println("조회된 결과가 없습니다.");
 			}
 		} catch (Exception ex) {
@@ -86,6 +96,6 @@ public class SelectActionListener2 implements ActionListener {
 //		 Object value = table.getValueAt(0, 1);
 //		 System.out.println((String)value);
 		 
-		 System.out.println("뷁");
+		 System.out.println(" ");
 	}
 }

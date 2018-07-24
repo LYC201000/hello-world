@@ -1,10 +1,12 @@
 package PR;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import com.kosea.kmove30.JDBC_Manager2;
 
@@ -27,6 +29,16 @@ public class UpdateActionListener2 implements ActionListener {
 		// TODO Auto-generated method stub
 		// DB수정
 		try {
+
+			UIManager UI1 = new UIManager();
+			UI1.put("OptionPane.background", Color.black);
+			UI1.put("Panel.background", Color.black);
+			UI1.put("Button.background", Color.black);
+			UI1.put("OptionPane.messageForeground", Color.green);
+			UI1.put("Button.messageForeground", Color.green);
+			JOptionPane.showConfirmDialog(null, "수정되었습니다", "수정메세지", JOptionPane.YES_NO_OPTION,
+					JOptionPane.WARNING_MESSAGE);
+			
 			String cname = text1.getText();
 			String phoneNum = text2.getText();
 			jdbcManager2.updateTable(cname, phoneNum);
@@ -34,8 +46,7 @@ public class UpdateActionListener2 implements ActionListener {
 			SelectActionListener2 selectActionListener2 = 
 					new SelectActionListener2(jdbcManager2, table);
 			selectActionListener2.actionPerformed(e);
-			JOptionPane.showConfirmDialog(null, "수정되었습니다", "수정메세지", JOptionPane.YES_NO_OPTION,
-					JOptionPane.WARNING_MESSAGE);
+
 
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block

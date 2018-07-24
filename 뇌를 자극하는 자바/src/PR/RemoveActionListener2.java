@@ -1,10 +1,12 @@
 package PR;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.kosea.kmove30.JDBC_Manager2;
@@ -21,8 +23,15 @@ public class RemoveActionListener2 implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 
-		int confirm = JOptionPane.showConfirmDialog(null, "혼도우?", "삭제", JOptionPane.YES_NO_OPTION,
+		UIManager UI5 = new UIManager();
+		UI5.put("OptionPane.background", Color.black);
+		UI5.put("Panel.background", Color.black);
+		UI5.put("Button.background", Color.black);
+		UI5.put("OptionPane.messageForeground", Color.green);
+		UI5.put("Button.messageForeground", Color.green);
+		int confirm = JOptionPane.showConfirmDialog(null, "삭제하시겠습니까?", "삭제", JOptionPane.YES_NO_OPTION,
 				JOptionPane.WARNING_MESSAGE);
+		
 
 		System.out.println("confirm" + confirm);
 
